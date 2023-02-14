@@ -9,7 +9,9 @@ import java.util.List;
 
 /**
  * Talvez usar factorys para remover o new
+ * Averiguar a interpretação conceitual
  * */
+
 public class ProductPresenter {
 
     /**Converte o produto do model para o produto de dto de response

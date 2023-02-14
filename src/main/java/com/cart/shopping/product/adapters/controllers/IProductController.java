@@ -11,5 +11,5 @@ public interface IProductController {
     public ProductResDto getById(long id);
     public ProductResDto createProduct(ProductReqDto p) throws NegativePrice;
     public ProductResDto updateProduct(long id, ProductReqDto p) throws NegativePrice;
-    public void DeleteProduct(long id);
+    public void deleteProduct(long id);
 }

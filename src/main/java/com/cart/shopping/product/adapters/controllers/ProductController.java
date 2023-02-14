@@ -48,7 +48,7 @@ public class ProductController implements IProductController {
     }
 
     @Override
-    public void DeleteProduct(long id){
+    public void deleteProduct(long id){
         productService.deleteById(id);
     }
 }

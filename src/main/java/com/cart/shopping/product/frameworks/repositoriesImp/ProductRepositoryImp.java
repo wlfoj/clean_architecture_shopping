@@ -3,6 +3,7 @@ package com.cart.shopping.product.frameworks.repositoriesImp;
 import com.cart.shopping.product.businessRules.entities.Product;
 import com.cart.shopping.product.businessRules.repositoryPorts.IProductRepository;
 import com.cart.shopping.product.frameworks.databaseJPA.ProductRepositoryJPA;
+import com.cart.shopping.product.frameworks.entitiesJPA.ProductEntityJPA;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,17 +19,19 @@ public class ProductRepositoryImp implements IProductRepository {
 
     @Override
     public List<Product> findAll() {
-        return this.productRepositoryJPA.findAll();
+        return ProductEntityJPA.toProductList(this.productRepositoryJPA.findAll());
     }
 
     @Override
-    public Optional<Product> findById(long id) {
-        return this.productRepositoryJPA.findById(id);
+    public Product findById(long id) {
+        // Se estiver dando erro vai ser aqui quando não houver nada
+        return this.productRepositoryJPA.findById(id).get().toProduct();
     }
 
     @Override
-    public Product save(Product c) {
-        return this.productRepositoryJPA.save(c);
+    public Product save(Product p) {
+        ProductEntityJPA prod = new ProductEntityJPA(p);
+        return this.productRepositoryJPA.save(prod).toProduct();
     }
 
     @Override

@@ -1,5 +1,5 @@
 # Descrição
-Uma simples aplicação de carrinho de compras para aplicar uma simplificação da Arquitetura Limpa
+Uma aplicação básica de carrinho de compras para aplicar uma interpretação simplificada da Arquitetura Limpa
 
 # Partes do Sistema
 - [X] Produtos
@@ -7,16 +7,17 @@ Uma simples aplicação de carrinho de compras para aplicar uma simplificação 
 - [ ] Carrinhos e Vendas
 
 # Metas
-[ ] Inserir DTO's  
-[ ] Documentar com Swagger  
-[ ] Construir testes  
-[ ] Inserir a parte de Sales 
-[ ] Inserir diagramas de classe  
-[ ] Inserir diagramas de persistência  
-[ ] Inserir diagramas de casos de uso  
-[ ] Adicionar Presenters  
+- [ ] Inserir DTO's  
+- [ ] Documentar com Swagger  
+- [ ] Controlar acessos com CORS  
+- [ ] Inserir um tratador de exceções
+- [ ] Segurança com JWT  
+- [ ] Construir testes  
+- [ ] Inserir diagramas de classe  
+- [ ] Inserir diagramas de persistência  
+- [ ] Inserir diagramas de casos de uso
 
-# LEMBRETES
+# DIFICULDADES E LEMBRETES
 - Dificuldade em traçar os limites e desenvolver a camada do interface adapters
 - Dificuldade em traçar os limites e desenvolver a camada do frameworks e drivers
 - Analisar como vai ser feita a injeção de dependências
