@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_DB=shoppingcart
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=1234
+      - TZ=GMT
+    ports:
+      - 5432:5432

@@ -1,7 +1,7 @@
 # Descrição
-Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma interpretação simplificada da Arquitetura Limpa
+Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma interpretação simplificada da Arquitetura Limpa.
 
-# Partes do Sistema
+# Partes Concluídas do Sistema
 - [X] Produtos
 - [ ] Clientes
 - [ ] Carrinhos e Vendas
@@ -17,21 +17,21 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 - [ ] Inserir diagramas de persistência  
 - [ ] Inserir diagramas de casos de uso
 
-# DIFICULDADES E LEMBRETES
-- Tratar o findById, quando não achar
-- Dificuldade em traçar os limites e desenvolver a camada do interface adapters
-- Dificuldade em traçar os limites e desenvolver a camada do frameworks e drivers
-- Entender melhor o Presenter e o Gateway DB da camada interface adapters
+# Lembretes
+- Estudar os limites e desenvolver a camada do interface adapters
+- Estudar os limites e desenvolver a camada do frameworks e drivers
+- Analisar as reponsabilidades do Presenter e do Gateway DB da camada interface adapters
 - Analisar se os métodos de conversão nas entidades jpa deveriam estar lá mesmo
 
-# Links de referência Arquitetura Limpa
+# Links de referência
+## Arquitetura Limpa
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
 
-# Links de referência padrão de commit's
+## Padrão de commit's
 - https://medium.com/linkapi-solutions/conventional-commits-pattern-3778d1a1e657
 - https://ilegra.com/blog/tudo-o-que-voce-precisa-saber-sobre-commits-semanticos/
 
-# Links de referência Swagger
+## Swagger
 - https://medium.com/rapaduratech/adicionando-swagger-para-testar-sua-api-em-spring-boot-1eebeee70d0f
 - https://www.treinaweb.com.br/blog/documentando-uma-api-spring-boot-com-o-swagger
 - https://www.conventionalcommits.org/pt-br/v1.0.0-beta.4/
