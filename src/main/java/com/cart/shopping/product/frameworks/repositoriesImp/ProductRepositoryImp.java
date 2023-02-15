@@ -25,7 +25,14 @@ public class ProductRepositoryImp implements IProductRepository {
     @Override
     public Optional<Product> findByIdProduct(long id) {
         // Se estiver dando erro vai ser aqui quando não houver nada
-        Optional<Product> prod = Optional.ofNullable(this.productRepositoryJPA.findById(id).get().toProduct());
+        Optional<ProductEntityJPA> product = this.productRepositoryJPA.findById(id);
+        Optional<Product> prod;
+        if(product.isPresent()){
+            prod = Optional.ofNullable(this.productRepositoryJPA.findById(id).get().toProduct());
+        }
+        else {
+            prod = Optional.ofNullable(null);
+        }
         return prod;
     }
 
@@ -46,6 +53,11 @@ public class ProductRepositoryImp implements IProductRepository {
             editedProductEntity.setName(p.getName());
             editedProductEntity.setPrice(p.getPrice());
             editedProductEntity = this.productRepositoryJPA.save(editedProductEntity);
+        }
+
+        // Para evitar erro quando editedProductEntity ainda for null
+        if (editedProductEntity == null){
+            return null;
         }
         return editedProductEntity.toProduct();
     }

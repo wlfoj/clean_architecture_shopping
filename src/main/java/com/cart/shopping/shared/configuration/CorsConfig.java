@@ -1,4 +1,4 @@
-package com.cart.shopping.configuration;
+package com.cart.shopping.shared.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

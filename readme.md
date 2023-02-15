@@ -1,5 +1,5 @@
 # Descrição
-Uma aplicação básica de carrinho de compras para aplicar uma interpretação simplificada da Arquitetura Limpa
+Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma interpretação simplificada da Arquitetura Limpa
 
 # Partes do Sistema
 - [X] Produtos
@@ -8,9 +8,9 @@ Uma aplicação básica de carrinho de compras para aplicar uma interpretação 
 
 # Metas
 - [x] Inserir DTO's  
-- [ ] Documentar com Swagger  
-- [ ] Controlar acessos com CORS  
-- [ ] Inserir um tratador de exceções
+- [x] Documentar com Swagger  
+- [x] Controlar acessos com CORS  
+- [x] Inserir um tratador de exceções customizado
 - [ ] Segurança com JWT  
 - [ ] Construir testes  
 - [ ] Inserir diagramas de classe  
@@ -23,7 +23,6 @@ Uma aplicação básica de carrinho de compras para aplicar uma interpretação 
 - Dificuldade em traçar os limites e desenvolver a camada do frameworks e drivers
 - Entender melhor o Presenter e o Gateway DB da camada interface adapters
 - Analisar se os métodos de conversão nas entidades jpa deveriam estar lá mesmo
-- Captar as exceções e tratar @Controller advice
 
 # Links de referência Arquitetura Limpa
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html

@@ -8,7 +8,7 @@ import com.cart.shopping.product.businessRules.useCases.ProductService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/** Classe para injeção de depêndencias no sistema para isolar as regras do framework
+/** Classe para injeção de depêndencias no sistema para isolar a aplicação do framework
  */
 @Configuration
 public class BeanConfiguration {

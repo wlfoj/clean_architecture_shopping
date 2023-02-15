@@ -5,6 +5,7 @@ import com.cart.shopping.product.adapters.dtos.response.ProductResDto;
 import com.cart.shopping.product.adapters.presenters.ProductPresenter;
 import com.cart.shopping.product.businessRules.entities.Product;
 import com.cart.shopping.product.businessRules.exceptions.NegativePrice;
+import com.cart.shopping.product.businessRules.exceptions.ProductNotFound;
 import com.cart.shopping.product.businessRules.useCases.IProductService;
 
 import java.util.List;
@@ -22,7 +23,7 @@ public class ProductController implements IProductController {
     }
 
     @Override
-    public ProductResDto getById(long id){
+    public ProductResDto getById(long id) throws ProductNotFound {
         Product product = productService.getById(id);
         return ProductPresenter.productToDto(product);
     }
@@ -38,7 +39,7 @@ public class ProductController implements IProductController {
     }
 
     @Override
-    public ProductResDto updateProduct(long id, ProductReqDto p) throws NegativePrice {
+    public ProductResDto updateProduct(long id, ProductReqDto p) throws NegativePrice, ProductNotFound {
         // Converte o dto de request em model
         Product product = ProductPresenter.dtoToProduct(p);
         // edita o produto e pega a resposta
