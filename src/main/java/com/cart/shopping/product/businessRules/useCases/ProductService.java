@@ -30,8 +30,8 @@ public class ProductService implements IProductService {
 
     @Override
     public Product getById(long id) throws ProductNotFound {
-        Optional<Product> p = productPort.findByIdProduct(id);
-        if(!p.isPresent()){
+        Product p = productPort.findByIdProduct(id);
+        if(p == null){
             throw new ProductNotFound();
         }
         return p.get();

@@ -23,17 +23,15 @@ public class ProductRepositoryImp implements IProductRepository {
     }
 
     @Override
-    public Optional<Product> findByIdProduct(long id) {
+    public Product findByIdProduct(long id) {
         // Se estiver dando erro vai ser aqui quando não houver nada
         Optional<ProductEntityJPA> product = this.productRepositoryJPA.findById(id);
-        Optional<Product> prod;
         if(product.isPresent()){
-            prod = Optional.ofNullable(this.productRepositoryJPA.findById(id).get().toProduct());
+            return product.get().toProduct();
         }
         else {
-            prod = Optional.ofNullable(null);
+            return null;
         }
-        return prod;
     }
 
     @Override

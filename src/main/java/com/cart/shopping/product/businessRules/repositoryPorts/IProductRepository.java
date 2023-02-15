@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface IProductRepository {
     List<Product> findAllProducts();
-    Optional<Product> findByIdProduct(long id);
+    Product findByIdProduct(long id);
     Product saveProduct(Product c);
     Product updateProduct(long id, Product c);
     void deleteByIdProduct(long id);
