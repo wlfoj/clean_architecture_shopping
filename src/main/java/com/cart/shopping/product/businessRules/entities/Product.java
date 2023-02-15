@@ -39,7 +39,7 @@ public class Product {
 
 
     public boolean isValidPrice(){
-        if(this.price>0){
+        if(this.price>=0){
             return true;
         }
         else{

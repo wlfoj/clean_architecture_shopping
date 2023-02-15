@@ -34,8 +34,7 @@ public class ProductService implements IProductService {
         if(p == null){
             throw new ProductNotFound();
         }
-        return p.get();
-        //return null;
+        return p;
     }
 
     @Override
