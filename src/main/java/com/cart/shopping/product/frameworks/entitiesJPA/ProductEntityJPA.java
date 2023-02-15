@@ -1,17 +1,13 @@
 package com.cart.shopping.product.frameworks.entitiesJPA;
 
 import com.cart.shopping.product.businessRules.entities.Product;
-import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**Só realizo a extensão para inverter a depêndencia do presenter ao converter O productJPA para product
- *
- */
 @Entity
-public class ProductEntityJPA extends Product {
+public class ProductEntityJPA{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Product_ID")
@@ -25,14 +21,39 @@ public class ProductEntityJPA extends Product {
 
 
     /** Construtores */
-    public ProductEntityJPA(){
-
-    }
+    public ProductEntityJPA(){}
     public ProductEntityJPA(Product p){
+        this.id = p.getId();
         this.name = p.getName();
         this.price = p.getPrice();
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+
+    // ANALISAR SE É DEVERIA ESTAR AQUI //
     /** Converte a Entidade JPA para o model */
     public Product toProduct(){
         return new Product(this.id, this.name, this.price);
@@ -45,10 +66,4 @@ public class ProductEntityJPA extends Product {
         }
         return list;
     }
-
-    /** Utiliza o bean utils para converter
-    public ProductEntityJPA convert(Product product) {
-        BeanUtils.copyProperties(product, this, getClass());
-        return this;
-    }*/
 }

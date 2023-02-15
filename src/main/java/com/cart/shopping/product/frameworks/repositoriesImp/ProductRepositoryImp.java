@@ -18,24 +18,41 @@ public class ProductRepositoryImp implements IProductRepository {
     }
 
     @Override
-    public List<Product> findAll() {
+    public List<Product> findAllProducts() {
         return ProductEntityJPA.toProductList(this.productRepositoryJPA.findAll());
     }
 
     @Override
-    public Product findById(long id) {
+    public Optional<Product> findByIdProduct(long id) {
         // Se estiver dando erro vai ser aqui quando não houver nada
-        return this.productRepositoryJPA.findById(id).get().toProduct();
+        Optional<Product> prod = Optional.ofNullable(this.productRepositoryJPA.findById(id).get().toProduct());
+        return prod;
     }
 
     @Override
-    public Product save(Product p) {
+    public Product saveProduct(Product p) {
         ProductEntityJPA prod = new ProductEntityJPA(p);
         return this.productRepositoryJPA.save(prod).toProduct();
     }
 
     @Override
-    public void deleteById(long id) {
+    public Product updateProduct(long id, Product p) {
+        ProductEntityJPA editedProductEntity = null;
+        // Verifica se existe alguém com o id
+        Optional<ProductEntityJPA> _product= this.productRepositoryJPA.findById(id);
+        // Se tiver preenche
+        if (_product.isPresent()) {
+            editedProductEntity = _product.get();
+            editedProductEntity.setName(p.getName());
+            editedProductEntity.setPrice(p.getPrice());
+            editedProductEntity = this.productRepositoryJPA.save(editedProductEntity);
+        }
+        return editedProductEntity.toProduct();
+    }
+
+
+    @Override
+    public void deleteByIdProduct(long id) {
         this.productRepositoryJPA.deleteById(id);
     }
 }

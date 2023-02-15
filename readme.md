@@ -7,7 +7,7 @@ Uma aplicação básica de carrinho de compras para aplicar uma interpretação 
 - [ ] Carrinhos e Vendas
 
 # Metas
-- [ ] Inserir DTO's  
+- [x] Inserir DTO's  
 - [ ] Documentar com Swagger  
 - [ ] Controlar acessos com CORS  
 - [ ] Inserir um tratador de exceções
@@ -18,10 +18,12 @@ Uma aplicação básica de carrinho de compras para aplicar uma interpretação 
 - [ ] Inserir diagramas de casos de uso
 
 # DIFICULDADES E LEMBRETES
+- Tratar o findById, quando não achar
 - Dificuldade em traçar os limites e desenvolver a camada do interface adapters
 - Dificuldade em traçar os limites e desenvolver a camada do frameworks e drivers
-- Analisar como vai ser feita a injeção de dependências
 - Entender melhor o Presenter e o Gateway DB da camada interface adapters
+- Analisar se os métodos de conversão nas entidades jpa deveriam estar lá mesmo
+- Captar as exceções e tratar @Controller advice
 
 # Links de referência Arquitetura Limpa
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html

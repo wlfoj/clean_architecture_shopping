@@ -19,17 +19,17 @@ public class ProductService implements IProductService {
         if(!p.isValidPrice()){
             throw new NegativePrice();
         }
-        return productPort.save(p);
+        return productPort.saveProduct(p);
     }
 
     @Override
     public List<Product> getAll() {
-        return productPort.findAll();
+        return productPort.findAllProducts();
     }
 
     @Override
     public Product getById(long id) {
-        Optional<Product> p = productPort.findById(id);
+        Optional<Product> p = productPort.findByIdProduct(id);
         if(p.isPresent()){
             return p.get();
         }
@@ -41,22 +41,13 @@ public class ProductService implements IProductService {
         if(!p.isValidPrice()){
             throw new NegativePrice();
         }
-        Product editedProductEntity = null;
-        // Verifica se existe alguém com o id
-        Optional<Product> _product= productPort.findById(id);
-        // Se tiver preenche
-        if (_product.isPresent()) {
-            editedProductEntity = _product.get();
-            editedProductEntity.setName(p.getName());
-            editedProductEntity.setPrice(p.getPrice());
-            editedProductEntity = productPort.save(editedProductEntity);
-        }
+        Product editedProductEntity = productPort.updateProduct(id, p);
         return editedProductEntity;
     }
 
     @Override
     public void deleteById(long id) {
-        productPort.deleteById(id);
+        productPort.deleteByIdProduct(id);
     }
 }
 
