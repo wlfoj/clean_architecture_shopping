@@ -5,7 +5,6 @@ import com.cart.shopping.product.interfaceAdapters.controllers.ProductController
 import com.cart.shopping.product.businessRules.persistencePorts.IProductGateway;
 import com.cart.shopping.product.businessRules.useCases.IProductService;
 import com.cart.shopping.product.businessRules.useCases.ProductService;
-import com.cart.shopping.product.frameworks.databaseJPA.ProductRepositoryJPA;
 import com.cart.shopping.product.interfaceAdapters.gateway.IProductRepository;
 import com.cart.shopping.product.interfaceAdapters.gateway.ProductGatewayImp;
 import org.springframework.context.annotation.Bean;

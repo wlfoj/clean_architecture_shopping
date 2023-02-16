@@ -44,12 +44,4 @@ public class ProductPresenter {
         return list;
     }
 
-    /**Converte a Entity JPA em Entity
-     *
-     */
-
-
-    /**Converte a Entity em Entity JPA
-     *
-     */
 }
