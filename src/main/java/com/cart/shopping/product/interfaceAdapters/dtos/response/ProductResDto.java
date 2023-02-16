@@ -1,4 +1,4 @@
-package com.cart.shopping.product.adapters.dtos.response;
+package com.cart.shopping.product.interfaceAdapters.dtos.response;
 
 public class ProductResDto {
     public long id;

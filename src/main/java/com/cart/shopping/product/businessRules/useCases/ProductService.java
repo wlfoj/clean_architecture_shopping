@@ -3,15 +3,14 @@ package com.cart.shopping.product.businessRules.useCases;
 import com.cart.shopping.product.businessRules.entities.Product;
 import com.cart.shopping.product.businessRules.exceptions.NegativePrice;
 import com.cart.shopping.product.businessRules.exceptions.ProductNotFound;
-import com.cart.shopping.product.businessRules.repositoryPorts.IProductRepository;
+import com.cart.shopping.product.businessRules.persistencePorts.IProductGateway;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ProductService implements IProductService {
-    private final IProductRepository productPort;
+    private final IProductGateway productPort;
 
-    public ProductService(IProductRepository productPort) {
+    public ProductService(IProductGateway productPort) {
         this.productPort = productPort;
     }
 

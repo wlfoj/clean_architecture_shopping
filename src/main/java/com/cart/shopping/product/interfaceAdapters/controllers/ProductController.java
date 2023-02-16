@@ -1,8 +1,8 @@
-package com.cart.shopping.product.adapters.controllers;
+package com.cart.shopping.product.interfaceAdapters.controllers;
 
-import com.cart.shopping.product.adapters.dtos.request.ProductReqDto;
-import com.cart.shopping.product.adapters.dtos.response.ProductResDto;
-import com.cart.shopping.product.adapters.presenters.ProductPresenter;
+import com.cart.shopping.product.interfaceAdapters.dtos.request.ProductReqDto;
+import com.cart.shopping.product.interfaceAdapters.dtos.response.ProductResDto;
+import com.cart.shopping.product.interfaceAdapters.presenters.ProductPresenter;
 import com.cart.shopping.product.businessRules.entities.Product;
 import com.cart.shopping.product.businessRules.exceptions.NegativePrice;
 import com.cart.shopping.product.businessRules.exceptions.ProductNotFound;

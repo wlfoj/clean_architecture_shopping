@@ -1,4 +1,4 @@
-package com.cart.shopping.product.adapters.dtos.request;
+package com.cart.shopping.product.interfaceAdapters.dtos.request;
 
 public class ProductReqDto {
     public String name;

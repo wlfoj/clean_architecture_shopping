@@ -1,9 +1,9 @@
-package com.cart.shopping.product.frameworks.repositoriesImp;
+package com.cart.shopping.product.frameworks.repositoryImp;
 
 import com.cart.shopping.product.businessRules.entities.Product;
-import com.cart.shopping.product.businessRules.repositoryPorts.IProductRepository;
 import com.cart.shopping.product.frameworks.databaseJPA.ProductRepositoryJPA;
 import com.cart.shopping.product.frameworks.entitiesJPA.ProductEntityJPA;
+import com.cart.shopping.product.interfaceAdapters.gateway.IProductRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -17,52 +17,47 @@ public class ProductRepositoryImp implements IProductRepository {
         this.productRepositoryJPA = productRepositoryJPA;
     }
 
+
     @Override
-    public List<Product> findAllProducts() {
+    public List<Product> findAll() {
         return ProductEntityJPA.toProductList(this.productRepositoryJPA.findAll());
     }
 
     @Override
-    public Product findByIdProduct(long id) {
-        // Se estiver dando erro vai ser aqui quando não houver nada
-        Optional<ProductEntityJPA> product = this.productRepositoryJPA.findById(id);
-        if(product.isPresent()){
-            return product.get().toProduct();
+    public Product findById(long id) {
+        Optional<ProductEntityJPA> prod = this.productRepositoryJPA.findById(id);
+        if (prod.isPresent()){
+            return prod.get().toProduct();
         }
-        else {
-            return null;
-        }
+        return null;
     }
 
     @Override
-    public Product saveProduct(Product p) {
-        ProductEntityJPA prod = new ProductEntityJPA(p);
-        return this.productRepositoryJPA.save(prod).toProduct();
+    public Product save(Product product) {
+        ProductEntityJPA p = new ProductEntityJPA(product);
+        return this.productRepositoryJPA.save(p).toProduct();
     }
 
     @Override
-    public Product updateProduct(long id, Product p) {
+    public Product update(long id, Product product) {
         ProductEntityJPA editedProductEntity = null;
         // Verifica se existe alguém com o id
         Optional<ProductEntityJPA> _product= this.productRepositoryJPA.findById(id);
         // Se tiver preenche
         if (_product.isPresent()) {
             editedProductEntity = _product.get();
-            editedProductEntity.setName(p.getName());
-            editedProductEntity.setPrice(p.getPrice());
+            editedProductEntity.setName(product.getName());
+            editedProductEntity.setPrice(product.getPrice());
             editedProductEntity = this.productRepositoryJPA.save(editedProductEntity);
+            return editedProductEntity.toProduct();
         }
-
-        // Para evitar erro quando editedProductEntity ainda for null
-        if (editedProductEntity == null){
+        else{
             return null;
         }
-        return editedProductEntity.toProduct();
     }
 
-
     @Override
-    public void deleteByIdProduct(long id) {
+    public void deleteById(long id) {
         this.productRepositoryJPA.deleteById(id);
     }
 }

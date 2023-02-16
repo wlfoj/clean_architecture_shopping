@@ -1,8 +1,8 @@
 package com.cart.shopping.product.frameworks.web;
 
-import com.cart.shopping.product.adapters.controllers.IProductController;
-import com.cart.shopping.product.adapters.dtos.request.ProductReqDto;
-import com.cart.shopping.product.adapters.dtos.response.ProductResDto;
+import com.cart.shopping.product.interfaceAdapters.controllers.IProductController;
+import com.cart.shopping.product.interfaceAdapters.dtos.request.ProductReqDto;
+import com.cart.shopping.product.interfaceAdapters.dtos.response.ProductResDto;
 import com.cart.shopping.product.businessRules.exceptions.NegativePrice;
 import com.cart.shopping.product.businessRules.exceptions.ProductNotFound;
 import io.swagger.annotations.ApiOperation;

@@ -1,7 +1,7 @@
-package com.cart.shopping.product.adapters.presenters;
+package com.cart.shopping.product.interfaceAdapters.presenters;
 
-import com.cart.shopping.product.adapters.dtos.request.ProductReqDto;
-import com.cart.shopping.product.adapters.dtos.response.ProductResDto;
+import com.cart.shopping.product.interfaceAdapters.dtos.request.ProductReqDto;
+import com.cart.shopping.product.interfaceAdapters.dtos.response.ProductResDto;
 import com.cart.shopping.product.businessRules.entities.Product;
 
 import java.util.ArrayList;

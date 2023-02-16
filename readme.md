@@ -18,9 +18,6 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 - [ ] Inserir diagramas de casos de uso
 
 # Lembretes
-- Estudar os limites e desenvolver a camada do interface adapters
-- Estudar os limites e desenvolver a camada do frameworks e drivers
-- Analisar as reponsabilidades do Presenter e do Gateway DB da camada interface adapters
 - Analisar se os métodos de conversão nas entidades jpa deveriam estar lá mesmo
 
 # Links de referência
