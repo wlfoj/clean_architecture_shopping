@@ -17,9 +17,6 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 - [ ] Inserir diagramas de persistência  
 - [ ] Inserir diagramas de casos de uso
 
-# Lembretes
-- Analisar se os métodos de conversão nas entidades jpa deveriam estar lá mesmo
-
 # Links de referência
 ## Arquitetura Limpa
 - https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
