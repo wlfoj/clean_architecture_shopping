@@ -20,22 +20,23 @@ public class ProductRepositoryImp implements IProductRepository {
 
     @Override
     public List<Product> findAll() {
-        return ProductEntityJPA.toProductList(this.productRepositoryJPA.findAll());
+        List<ProductEntityJPA> list = this.productRepositoryJPA.findAll();
+        return ProductMapper.toProductList(list);
     }
 
     @Override
     public Product findById(long id) {
         Optional<ProductEntityJPA> prod = this.productRepositoryJPA.findById(id);
         if (prod.isPresent()){
-            return prod.get().toProduct();
+            return ProductMapper.toProduct(prod.get());
         }
         return null;
     }
 
     @Override
     public Product save(Product product) {
-        ProductEntityJPA p = new ProductEntityJPA(product);
-        return this.productRepositoryJPA.save(p).toProduct();
+        ProductEntityJPA p = ProductMapper.toProductJPA(product);
+        return ProductMapper.toProduct(this.productRepositoryJPA.save(p));
     }
 
     @Override
@@ -49,7 +50,7 @@ public class ProductRepositoryImp implements IProductRepository {
             editedProductEntity.setName(product.getName());
             editedProductEntity.setPrice(product.getPrice());
             editedProductEntity = this.productRepositoryJPA.save(editedProductEntity);
-            return editedProductEntity.toProduct();
+            return ProductMapper.toProduct(editedProductEntity);
         }
         else{
             return null;
