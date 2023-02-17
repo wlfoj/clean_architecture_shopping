@@ -9,6 +9,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1")
 public class WebProductControllerAPI {
+
+    private static final Logger logger = LoggerFactory.getLogger(WebProductControllerAPI.class);
     private final IProductController productController;
 
     public WebProductControllerAPI(IProductController productController) {
@@ -32,8 +36,10 @@ public class WebProductControllerAPI {
     })
     @GetMapping("/product")
     public ResponseEntity<List<ProductResDto>> getAll(){
+        logger.trace("getAll method called");
         try {
             List<ProductResDto> _rp = productController.getAll();
+            logger.info("List of all products obtained");
             return new ResponseEntity<>(_rp, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -50,15 +56,13 @@ public class WebProductControllerAPI {
     })
     @GetMapping("/product/{id}")
     public ResponseEntity<ProductResDto> getById(@ApiParam(value="id do produto") @PathVariable("id") long id) throws ProductNotFound {
+        logger.trace("getById method called with id = {}", id);
         try {
             ProductResDto _p = productController.getById(id);
+            logger.info("Product Found with id="+id);
             return new ResponseEntity<>(_p, HttpStatus.OK);
-            //Se tiver achado
-//            if (_p != null) {
-//                return new ResponseEntity<>(_p, HttpStatus.OK);
-//            }
-        //se não achar
         } catch (ProductNotFound e){
+            logger.warn("Product Not Found with id="+id);
             throw new ProductNotFound();
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -74,10 +78,13 @@ public class WebProductControllerAPI {
     })
     @PostMapping("/product")
     public ResponseEntity<ProductResDto> createProduct(@ApiParam(value="Dados do produto") @RequestBody ProductReqDto p) throws NegativePrice {
+        logger.trace("createProduct method called for product = {}", p);
         try{
             ProductResDto _rp = productController.createProduct(p);
+            logger.info("Product created");
             return new ResponseEntity<>(_rp, HttpStatus.CREATED);
         } catch (NegativePrice e){
+            logger.error("Price Negative recived");
             throw new NegativePrice();
         }
         catch (Exception e) {
@@ -95,12 +102,16 @@ public class WebProductControllerAPI {
     })
     @PutMapping("/product/{id}")
     public ResponseEntity<ProductResDto> updateProduct(@ApiParam(value="id do produto") @PathVariable("id") long id, @ApiParam(value="Novos dados") @RequestBody ProductReqDto p) throws ProductNotFound, NegativePrice {
+        logger.trace("updateProduct method called with id={} and new product={}", id, p);
         try{
             ProductResDto _p = productController.updateProduct(id, p);
+            logger.info("Product with id="+id+" has been updated");
             return new ResponseEntity<>(_p, HttpStatus.OK);
         } catch (ProductNotFound e){
+            logger.warn("Product Not Found with id="+id);
             throw new ProductNotFound();
         } catch (NegativePrice e){
+            logger.warn("Price Negative recived");
             throw new NegativePrice();
         } catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -116,8 +127,10 @@ public class WebProductControllerAPI {
     })
     @DeleteMapping("/product/{id}")
     public ResponseEntity<HttpStatus> deleteProduct(@ApiParam(value="id do produto") @PathVariable("id") long id) {
+        logger.trace("deleteProduct method called with id={}", id);
         try {
             productController.deleteProduct(id);
+            logger.info("Requested Product deletion");
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);

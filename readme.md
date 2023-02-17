@@ -11,6 +11,7 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 - [x] Documentar com Swagger  
 - [x] Controlar acessos com CORS  
 - [x] Inserir um tratador de exceções customizado
+- [x] Inserir Logs
 - [ ] Segurança com JWT  
 - [ ] Construir testes  
 - [ ] Inserir diagramas de classe  
