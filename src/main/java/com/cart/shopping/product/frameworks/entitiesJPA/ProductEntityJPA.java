@@ -8,13 +8,13 @@ import javax.persistence.*;
 public class ProductEntityJPA{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Product_ID")
+    @Column(name = "product_id")
     private long id;
 
-    @Column(name = "Product_Name")
+    @Column(name = "product_name")
     private String name;
 
-    @Column(name = "Product_Price")
+    @Column(name = "product_price")
     private float price;
 
 

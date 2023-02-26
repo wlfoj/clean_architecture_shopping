@@ -3,6 +3,8 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres
+    volumes:
+      - ./start_db_postgres.sql:/docker-entrypoint-initdb.d/start_db_postgres.sql
     environment:
       - POSTGRES_DB=shoppingcart
       - POSTGRES_USER=root

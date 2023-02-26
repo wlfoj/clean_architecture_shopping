@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 /** Classe para injeção de depêndencias no sistema para isolar a aplicação do framework */
 @Configuration
-public class BeanConfiguration {
+public class BeanProductConfiguration {
     /** Bloco para o Bean dos Gateway (SE FOR NECESSÁRIO) **/
     @Bean
     IProductGateway productGateway(IProductRepository productRepository){

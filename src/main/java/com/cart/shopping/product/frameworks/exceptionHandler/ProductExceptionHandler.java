@@ -12,7 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
+public class ProductExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(ProductNotFound.class)
     public ResponseEntity<Object> handleProductNotFoundException(

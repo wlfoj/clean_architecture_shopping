@@ -1,19 +1,24 @@
 # Descrição
 Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma interpretação simplificada da Arquitetura Limpa.
 
+# A Fazer
+- Corrigir a estruturação das pastas e os nomes dos padrões em ``Product`` 
+
 # Partes Concluídas do Sistema
 - [X] Produtos
-- [ ] Clientes
+- [X] Clientes
 - [ ] Carrinhos e Vendas
 
 # Metas
 - [x] Inserir DTO's  
 - [x] Documentar com Swagger  
 - [x] Controlar acessos com CORS  
-- [x] Inserir um tratador de exceções customizado
+- [x] Inserir tratador de exceções customizado
 - [x] Inserir Logs
+- [x] Script de inicialização de banco de dados
+- [ ] Inserir documentação/info dos packages
 - [ ] Segurança com JWT  
-- [ ] Construir testes  
+- [ ] Escrever testes  
 - [ ] Inserir diagramas de classe  
 - [ ] Inserir diagramas de persistência  
 - [ ] Inserir diagramas de casos de uso
