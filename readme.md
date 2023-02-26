@@ -3,6 +3,7 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 
 # A Fazer
 - Corrigir a estruturação das pastas e os nomes dos padrões em ``Product`` 
+- CustomerRepositoryImp está ferindo a Arquitetura Limpa pois ele está sabendo sobre a Frameworks
 
 # Partes Concluídas do Sistema
 - [X] Produtos
@@ -16,6 +17,7 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 - [x] Inserir tratador de exceções customizado
 - [x] Inserir Logs
 - [x] Script de inicialização de banco de dados
+- [ ] Mensageria com RabbitMQ para envio de email
 - [ ] Inserir documentação/info dos packages
 - [ ] Segurança com JWT  
 - [ ] Escrever testes  

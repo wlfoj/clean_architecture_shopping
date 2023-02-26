@@ -1,23 +1,22 @@
-package com.cart.shopping.customer.interfaceAdapters.gateway;
+package com.cart.shopping.customer.interfaceAdapters.repository;
 
 import com.cart.shopping.customer.businessRules.entities.Customer;
 import com.cart.shopping.customer.businessRules.exceptions.JDBCConnectionnFailed;
-import com.cart.shopping.customer.businessRules.persistencePorts.ICustomerGateway;
-import com.cart.shopping.customer.frameworks.dataBase.PostgreSqlConn;
+import com.cart.shopping.customer.businessRules.persistence.ICustomerRepository;
 import com.cart.shopping.customer.interfaceAdapters.presenters.CustomerPresenter;
 
 import java.sql.*;
 import java.util.List;
 
-public class CustomerGatewayImp implements ICustomerGateway {
+public class CustomerRepositoryImp implements ICustomerRepository {
 
     private final Connection connection;
 
 //    public CustomerGatewayImp(Connection connection) {
 //        this.connection = connection;
 //    }
-    public CustomerGatewayImp(PostgreSqlConn postgreSqlConn) throws JDBCConnectionnFailed {
-        this.connection = postgreSqlConn.getConnectionn();
+    public CustomerRepositoryImp(Conector conn) throws JDBCConnectionnFailed {
+        this.connection = conn.getConnectionn();
     }
 
 

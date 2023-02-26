@@ -3,14 +3,14 @@ package com.cart.shopping.customer.businessRules.useCases;
 import com.cart.shopping.customer.businessRules.entities.Customer;
 import com.cart.shopping.customer.businessRules.exceptions.CustomerNotFound;
 import com.cart.shopping.customer.businessRules.exceptions.EmailInvalid;
-import com.cart.shopping.customer.businessRules.persistencePorts.ICustomerGateway;
+import com.cart.shopping.customer.businessRules.persistence.ICustomerRepository;
 
 import java.util.List;
 
 public class CustomerService implements ICustomerService{
-    private final ICustomerGateway customerPort;
+    private final ICustomerRepository customerPort;
 
-    public CustomerService(ICustomerGateway customerPort) {
+    public CustomerService(ICustomerRepository customerPort) {
         this.customerPort = customerPort;
     }
 
