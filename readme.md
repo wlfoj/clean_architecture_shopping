@@ -3,7 +3,6 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 
 # A Fazer
 - Corrigir a estruturação das pastas e os nomes dos padrões em ``Product`` 
-- CustomerRepositoryImp está ferindo a Arquitetura Limpa pois ele está sabendo sobre a Frameworks
 
 # Partes Concluídas do Sistema
 - [X] Produtos
