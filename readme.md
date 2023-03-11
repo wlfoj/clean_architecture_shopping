@@ -16,7 +16,7 @@ Uma aplicação básica (monolítica) de carrinho de compras para aplicar uma in
 - [x] Inserir tratador de exceções customizado
 - [x] Inserir Logs
 - [x] Script de inicialização de banco de dados
-- [ ] Mensageria com RabbitMQ para envio de email
+- [x] Mensageria com RabbitMQ para envio de email
 - [ ] Inserir documentação/info dos packages
 - [ ] Segurança com JWT  
 - [ ] Escrever testes  

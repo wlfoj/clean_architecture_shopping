@@ -1,6 +1,8 @@
 package com.cart.shopping.customer.interfaceAdapters.dtos.response;
 
-public class CustomerResDto {
+import java.io.Serializable;
+
+public class CustomerResDto implements Serializable {
     public long id;
     public String name;
     public String email;

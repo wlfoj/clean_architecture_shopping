@@ -65,4 +65,18 @@ public class CustomerPresenter {
         c.setName(cReq.name);
         return c;
     }
+
+
+    /** Converte o dtoResponse para uma String para enviar ao RabbitMQ
+     *
+     * @param cRes: dto customer response
+     * @return String json
+     */
+    public static String dtoResToStringJson(CustomerResDto cRes){
+        String res = "";
+        res = res + "{email:"+cRes.email+",";
+        res = res + "name:"+cRes.name +",";
+        res = res + "id:"+cRes.id +"}";
+        return res;
+    }
 }

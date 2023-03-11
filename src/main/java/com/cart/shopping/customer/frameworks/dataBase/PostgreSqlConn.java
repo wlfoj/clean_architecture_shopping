@@ -10,12 +10,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 @Component
 public class PostgreSqlConn implements Conector{
-    //@Value("${spring.datasource.url}")
-    private static String url = "jdbc:postgresql://localhost:5432/shoppingcart";
-    //@Value("${spring.datasource.username}")
-    private static String username = "root";
-    //@Value("${spring.datasource.password}")
-    private static String password = "1234";
+    @Value("${spring.datasource.url}")
+    private String url;
+    @Value("${spring.datasource.username}")
+    private String username;
+    @Value("${spring.datasource.password}")
+    private String password;
 
     @Override
     public Connection getConnectionn() throws JDBCConnectionnFailed {

@@ -2,9 +2,12 @@ package com.cart.shopping.customer.frameworks.web;
 
 import com.cart.shopping.customer.businessRules.exceptions.CustomerNotFound;
 import com.cart.shopping.customer.businessRules.exceptions.EmailInvalid;
+import com.cart.shopping.shared.rabbitmq.QueueNames;
 import com.cart.shopping.customer.interfaceAdapters.controllers.ICustomerController;
 import com.cart.shopping.customer.interfaceAdapters.dtos.request.CustomerReqDto;
 import com.cart.shopping.customer.interfaceAdapters.dtos.response.CustomerResDto;
+import com.cart.shopping.shared.rabbitmq.QueueSender;
+import com.cart.shopping.customer.interfaceAdapters.presenters.CustomerPresenter;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
@@ -22,9 +25,11 @@ import java.util.List;
 public class WebCustomerControllerAPI {
     private static final Logger logger = LoggerFactory.getLogger(WebCustomerControllerAPI.class);
     private final ICustomerController customerController;
+    private final QueueSender queueSender;///////
 
-    public WebCustomerControllerAPI(ICustomerController customerController) {
+    public WebCustomerControllerAPI(ICustomerController customerController, QueueSender queueSender) {
         this.customerController = customerController;
+        this.queueSender = queueSender;//////
     }
 
     @ApiOperation(value = "Lista de clientes", notes = "Retorna todos os clientes")
@@ -81,6 +86,8 @@ public class WebCustomerControllerAPI {
         try{
             CustomerResDto _c = customerController.createCustomer(c);
             logger.info("Customer created");
+            this.queueSender.send(QueueNames.WELCOME.name(), CustomerPresenter.dtoResToStringJson(_c));
+            logger.info("Welcome Message sended to Customer: {}", _c.email);
             return new ResponseEntity<>(_c, HttpStatus.CREATED);
         } catch (EmailInvalid e){
             logger.error("Invalid Email recived");
