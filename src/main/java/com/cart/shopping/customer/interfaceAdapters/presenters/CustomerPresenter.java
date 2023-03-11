@@ -74,9 +74,9 @@ public class CustomerPresenter {
      */
     public static String dtoResToStringJson(CustomerResDto cRes){
         String res = "";
-        res = res + "{email:"+cRes.email+",";
-        res = res + "name:"+cRes.name +",";
-        res = res + "id:"+cRes.id +"}";
+        res = res + "{\"email\":\""+cRes.email+"\",";
+        res = res + "\"name\":\""+cRes.name +"\",";
+        res = res + "\"id\":"+cRes.id +"}";
         return res;
     }
 }
