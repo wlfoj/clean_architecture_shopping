@@ -28,7 +28,7 @@ public class RabbitMQConn {
 
     // Anotaçao introduzida para executar o método após instânciar a classe
     @PostConstruct
-    private void adicionar(){
+    private void setup(){
         // Inicializando as filas, exchanges e relacionamentos
         Queue queueWelcome = this.queue(QueueNames.WELCOME.name());
         DirectExchange exchange = this.exchange(this.exchangeName);
